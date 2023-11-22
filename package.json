@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@kubernetes/client-node": "^0.20.0",
+    "@tanstack/react-query": "^5.8.4",
     "aws": "^0.0.3-2",
     "aws-sdk": "^2.1499.0",
     "dotenv": "^16.3.1",
@@ -20,11 +22,15 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/react-query": "^1.2.9",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.3",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
+  },
+    "browser": {
+    "child_process": false
   }
 }
