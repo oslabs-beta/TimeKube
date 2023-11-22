@@ -18,10 +18,13 @@ async function getData() {
 export default async function CurrentState() {
   // const dataString = JSON.stringify(data);
   const dataAPI = await getData();
+  console.log(dataAPI);
 
   return (
     <div>
-      {JSON.stringify(dataAPI)}
+      <pre>
+      {JSON.stringify(dataAPI, null, 2)}
+      </pre>
     </div>
   );
 };
