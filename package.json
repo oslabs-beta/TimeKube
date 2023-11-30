@@ -15,8 +15,10 @@
     "aws-sdk": "^2.1499.0",
     "dotenv": "^16.3.1",
     "next": "14.0.3",
+    "pg": "^8.11.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "sequelize": "^6.35.1"
   },
   "devDependencies": {
     "@types/node": "^20",
@@ -30,7 +32,7 @@
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
   },
-    "browser": {
+  "browser": {
     "child_process": false
   }
 }
