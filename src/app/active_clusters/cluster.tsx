@@ -1,5 +1,6 @@
 "use client"
 
+import Link from 'next/link';
 import { MouseEventHandler } from "react";
 
 type ClusterProp = {
@@ -9,7 +10,7 @@ type ClusterProp = {
 
 export default function Cluster(props: ClusterProp) {
     const handleViewBtnCLicked = () => {
-        alert('View btn clicked!')
+        console.log('View btn clicked!');
     }
     return (
         <div className="activeCluster">
@@ -17,7 +18,9 @@ export default function Cluster(props: ClusterProp) {
                 {props.text}
             </div>
             <div>
-                <button onClick={handleViewBtnCLicked}>View</button>
+                <button onClick={handleViewBtnCLicked}>
+                    <Link href="../cluster_details/">View</Link>
+                </button>
             </div>
         </div>
     )
