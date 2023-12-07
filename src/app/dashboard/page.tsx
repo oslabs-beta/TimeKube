@@ -9,7 +9,6 @@ const DashboardPage: NextPage = () => {
       <h1>Dashboard</h1>
       <p>Welcome to the dashboard page!</p>
       <CurrentState />
-      <Shell></Shell>
     </div>
   );
 };
