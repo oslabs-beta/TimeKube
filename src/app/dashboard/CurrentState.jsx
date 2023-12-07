@@ -15,7 +15,7 @@ async function getData() {
         //    probably return a react component (i.e. card) that displays the pods and basic info
         // 3. After getting all pods from all namespaces, display this data in a sane way
         const podsRes = await k8sApi.listNamespacedPod('default');
-        console.log(podsRes.body);
+        // console.log(podsRes.body);
         return podsRes.body;
     } catch (err) {
         console.error(err);
