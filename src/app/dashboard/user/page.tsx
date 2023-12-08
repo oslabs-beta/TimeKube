@@ -1,6 +1,5 @@
 import { NextPage } from 'next';
 import { db } from '@/utils/kysely';
-import { TableExpression } from 'kysely';
 
 const Page: NextPage = async () => {
   const users = await db.selectFrom('User').selectAll().execute();
