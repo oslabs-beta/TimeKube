@@ -77,6 +77,16 @@ export async function saveClusterToYaml() {
   }
 }
 
+export async function saveClusterToSingleYaml() {
+  try {
+    await exec(`mkdir -p "${baseUrl}"`);
+    await exec(`kubectl get all --all-namespaces -o yaml > ${baseUrl}/cluster-state.yaml`);
+    console.log("Backup function ran")
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 export async function ls() {
   const { stdout } = await exec(`ls`);
   return stdout;

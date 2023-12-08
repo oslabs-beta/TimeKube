@@ -1,6 +1,7 @@
 'use server'
-import { saveClusterToYaml } from "@/utils/backup";
+import { saveClusterToSingleYaml, saveClusterToYaml } from "@/utils/backup";
 
 export async function backupHandler() {
-  saveClusterToYaml();
+  // saveClusterToYaml();
+  saveClusterToSingleYaml();
 }
