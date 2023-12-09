@@ -21,13 +21,18 @@
     "mysql2": "^3.6.5",
     "next": "14.0.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-copy-to-clipboard": "^5.1.0",
+    "react-dom": "^18",
+    "react-syntax-highlighter": "^15.5.0"
   },
   "devDependencies": {
+    "@heroicons/react": "^2.0.18",
     "@types/node": "^20",
     "@types/react": "^18",
+    "@types/react-copy-to-clipboard": "^5.0.7",
     "@types/react-dom": "^18",
     "@types/react-query": "^1.2.9",
+    "@types/react-syntax-highlighter": "^15.5.11",
     "autoprefixer": "^10.0.1",
     "daisyui": "^4.4.19",
     "drizzle-kit": "^0.20.6",
@@ -35,6 +40,7 @@
     "eslint-config-next": "14.0.3",
     "kysely-codegen": "^0.11.0",
     "postcss": "^8",
+    "tailwind-scrollbar": "^3.0.5",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
   },
