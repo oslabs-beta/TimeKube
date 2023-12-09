@@ -10,8 +10,8 @@
   },
   "dependencies": {
     "@kubernetes/client-node": "^0.20.0",
-    "@tanstack/react-query": "^5.8.4",
     "@planetscale/database": "^1.11.0",
+    "@tanstack/react-query": "^5.8.4",
     "aws": "^0.0.3-2",
     "aws-sdk": "^2.1499.0",
     "dotenv": "^16.3.1",
@@ -29,6 +29,7 @@
     "@types/react-dom": "^18",
     "@types/react-query": "^1.2.9",
     "autoprefixer": "^10.0.1",
+    "daisyui": "^4.4.19",
     "drizzle-kit": "^0.20.6",
     "eslint": "^8",
     "eslint-config-next": "14.0.3",
@@ -37,7 +38,7 @@
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
   },
-    "browser": {
+  "browser": {
     "child_process": false
   }
 }
