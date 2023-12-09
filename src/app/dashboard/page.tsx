@@ -1,7 +1,6 @@
 
 import { NextPage } from 'next';
 import CurrentState from './CurrentState.jsx';
-import Shell from './Shell';
 
 const DashboardPage: NextPage = () => {
   return (
