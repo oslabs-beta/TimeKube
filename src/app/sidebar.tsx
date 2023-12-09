@@ -21,7 +21,9 @@ export default function Sidebar({ content }: { content: React.ReactNode }) {
           {/* Sidebar content here */}
           <li><a onClick={() => handleRedirect('/active_clusters')}>View Clusters</a></li>
           <li><a onClick={() => handleRedirect('/')}>View Snapshots</a></li>
-          <li><a onClick={() => handleRedirect('/backup')}>Backup Data</a></li>
+          <li><a onClick={() => handleRedirect('/backup')}>Manual Data Backup</a></li>
+          <li><a onClick={() => handleRedirect('/schedule_options')}>Automatic Data Backup</a></li>
+
         </ul>
       </div>
     </div>

@@ -6,7 +6,7 @@ import Cluster from './cluster';
 const Page: NextPage = () => {
     return (
     <div>
-      <div className="drawer-content flex flex-col items-center justify-top text-8xl -mt-36 text-black font-extrabold">User Clusters</div>
+      <div className="drawer-content flex flex-col items-center justify-top text-8xl -mt-36 text-white font-extrabold">User Clusters</div>
       <div className="grid grid-cols-3 gap-48 mt-36">
         <Cluster id='1' text='Cluster 1'/>
         <Cluster id='2' text='Cluster 2'/>

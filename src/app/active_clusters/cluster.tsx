@@ -15,7 +15,7 @@ export default function Cluster(props: ClusterProp) {
     return (
         <div className="activeCluster">
             <div>
-                <button className="btn btn-primary btn-lg btn-wide" onClick={handleViewBtnCLicked}>
+                <button className="btn btn-lg btn-wide text-white font-extrabold bg-gray-800" onClick={handleViewBtnCLicked}>
                     <Link href={`../cluster_details/?id=${props.id}`}>{props.text}</Link>
                 </button>
             </div>
