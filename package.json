@@ -37,7 +37,7 @@
     "@types/react-dom": "^18",
     "@types/react-query": "^1.2.9",
     "autoprefixer": "^10.0.1",
-    "aws-sdk-mock": "^5.8.0",
+    "daisyui": "^4.4.19",
     "drizzle-kit": "^0.20.6",
     "eslint": "^8",
     "eslint-config-next": "14.0.3",

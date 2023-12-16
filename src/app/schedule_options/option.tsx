@@ -16,7 +16,7 @@ export default function Option(props: ScheduleOptionProp) {
     }
 
     return (
-        <div id={`${props.id}`} className={`block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 cursor-pointer`} onClick={() => handleOptionClicked()}>
+        <div id={`${props.id}`} className="btn btn-lg text-white font-extrabold bg-gray-800" onClick={() => handleOptionClicked()}>
             {props.text}
         </div>
     )
