@@ -17,8 +17,10 @@ AWS.config.update({
 //current date
 const currentDate: string = moment().format('YYYY-MM-DD');
 
+const timeIdentifer = ['daily_snapshots', 'weekly_snapshots', 'monthly_snapshots','annual_snapshots'];
+
 //fetching the information (We can adjust this based on our logic)
-const snapshotType: string = 'Daily'; // We can change this to 'Daily', 'Weekly', 'Monthly', or 'Annual' - Will need to be sent in by the front end. 
+const snapshotType: string = timeIdentifer[0]; // We can change this to 'Daily', 'Weekly', 'Monthly', or 'Annual' - Will need to be sent in by the front end. 
 //Object information that will be stored in the s3 Bucket
 const objectKey: string = `${snapshotType}/${currentDate}/cluster-state.yaml`;
 //created instance of S3
