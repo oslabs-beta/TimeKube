@@ -1,5 +1,10 @@
-# TimeKube
-TimeKube is a Kubernetes cluster "Time Machine" graphical user interface that is able to take snapshots of a cluster’s state. 
+# TimeKube 
+
+<p>
+  <img width="250" src="assets/logo.png" alt="TK Logo">
+</p>
+
+TimeKube is a K8s cluster "Time Machine" graphical user interface that is able to take snapshots of a cluster’s state. 
 
 ## Table of Contents
 

@@ -1,13 +1,16 @@
 import { NextPage } from 'next';
 import { db } from '@/utils/kysely';
 
+
+// let database = db; 
+
 const Page: NextPage = async () => {
-  const users = await db.selectFrom('User').selectAll().execute();
+  // const Users = await database.selectFrom(Users).selectAll().execute();
   return (
     <div>
       <h1>Dashboard</h1>
       <p>Welcome to the user page!</p>
-      {JSON.stringify(users, null, 2)}
+      {/* {JSON.stringify(users, null, 2)} */}
     </div>
   );
 };
