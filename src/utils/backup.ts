@@ -81,7 +81,7 @@ export async function saveClusterToSingleYaml() {
   try {
     await exec(`mkdir -p "${baseUrl}"`);
     await exec(`kubectl get all --all-namespaces -o yaml > ${baseUrl}/cluster-state.yaml`);
-    console.log("Backup function ran")
+    console.log("Backup to file completed.")
   } catch (error) {
     console.error(error);
   }
