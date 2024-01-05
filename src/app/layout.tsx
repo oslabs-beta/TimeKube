@@ -28,8 +28,6 @@ export default function RootLayout({
       <body className={inter.className}>
         <Navbar/>
         <Sidebar content={children}/>
-        <Navbar/>
-        <Sidebar content={children}/>
       </body>
     </html>
   );
