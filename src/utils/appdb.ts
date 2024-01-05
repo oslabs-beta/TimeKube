@@ -1,13 +1,16 @@
 const db = require("better-sqlite3")('appdata/snapshots.db'); // Replace with your database path
 
-export async function initDB() {
-  await db.exec(
-    "CREATE TABLE IF NOT EXISTS backups (id INTEGER PRIMARY KEY AUTOINCREMENT, creationDate DATETIME DEFAULT CURRENT_TIMESTAMP, url TEXT)"
+export function initDB() {
+  db.exec(
+    "CREATE TABLE IF NOT EXISTS backups (id INTEGER PRIMARY KEY AUTOINCREMENT, clusterId TEXT, creationDate DATETIME DEFAULT CURRENT_TIMESTAMP, url TEXT)"
   );
 }
 
-export async function insertBackup(url: string) {
-  await db.prepare("INSERT INTO backups (url) VALUES (?)").run(url);
+export function insertBackup(clusterId: string, url: string): number {
+  // See info object from bettersqlite3 docs
+  const info = db.prepare("INSERT INTO backups (url) VALUES (?)").run(url);
+  console.log('Sample entry inserted with ID:', info.lastInsertRowid);
+  return info.lastInsertRowid;
 }
 
 export async function getAllBackups() {
