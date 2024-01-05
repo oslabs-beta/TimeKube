@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import "./globals.css";
 import Sidebar from "./sidebar";
 import Navbar from "./navbar";
+import { startChronJobs } from "@/services/autobackup";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -19,14 +20,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
 
-  // useEffect(()=> {
-  //       // Load AWS SDK configuration
-  //       config.update({
-  //         accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-  //         secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-  //         region: process.env.NEXT_PUBLIC_AWS_REGION,
-  //       });
-  // },[]);
+    //upon mountin of the page, call the chronjobs mod
+    // startChronJobs();
 
   return (
     <html lang="en">

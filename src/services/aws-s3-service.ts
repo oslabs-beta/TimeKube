@@ -19,7 +19,7 @@ const s3 = new AWS.S3();
 
 //Backup functionality 
 
-const currentDate = moment().format('YYYY-MM-DD HH:mm:ss');
+// const currentDate = moment().format('YYYY-MM-DD HH:mm:ss');
 
 
 //fetching the information (We can adjust this based on our logic)
