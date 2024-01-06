@@ -19,7 +19,11 @@ describe("sqlite database tests", () => {
   it("should get all rows", async () => {
     // need to insert in case db is empty
     // need to assign insertedId for cleanup
-    const newRow = await insertBackup("default", "https://www.get-test.com");
+    const newRow = await insertBackup(
+      "https://www.get-test.com",
+      "test-no-s3-key",
+      "default"
+    );
     insertedId = newRow.id;
     if (insertedId === null) {
       throw new Error("Failure to insert: id is null");
@@ -30,7 +34,11 @@ describe("sqlite database tests", () => {
   });
 
   it("should get a backup by id", async () => {
-    const newRow = await insertBackup("test", "https://www.get-id-test.com");
+    const newRow = await insertBackup(
+      "https://www.get-id-test.com",
+      "test-no-s3",
+      "test"
+    );
     insertedId = newRow.id;
     const inserted = await getBackup(insertedId);
     if (!inserted) {
@@ -41,14 +49,14 @@ describe("sqlite database tests", () => {
 
   it("should insert a url", async () => {
     const testUrl = "https://www.insert-test.com";
-    const insertedRow = await insertBackup("test", testUrl);
+    const insertedRow = await insertBackup(testUrl, "test-no-s3", "test");
     insertedId = insertedRow.id;
     expect(insertedRow.url).toBe(testUrl);
   });
 
   it("should delete a row by id", async () => {
     const testUrl = "https://delete-test.com";
-    const insertedRow = await insertBackup("test", testUrl);
+    const insertedRow = await insertBackup(testUrl, "test-no-s3", "test");
     const deleteResult = deleteBackupById(insertedRow.id);
 
     // Check if that item still exists

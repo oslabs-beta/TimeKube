@@ -11,9 +11,12 @@ export const db = new Kysely<DB>({
   dialect,
 });
 
-export async function insertBackup(clusterId: string, url: string) {
+export async function insertBackup(url: string, storageKey: string, clusterId: string = "default") {
   if (!clusterId) {
     clusterId = "default";
+  }
+  if (!storageKey) {
+    throw new Error("NoCloudStorageFileKeyError")
   }
   const insertedRow = await db
     .insertInto("backups")
