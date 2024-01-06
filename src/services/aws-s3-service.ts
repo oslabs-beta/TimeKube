@@ -32,7 +32,7 @@ const uploadParams: AWS.S3.Types.PutObjectRequest = {
   Bucket: bucket,
   Key: objectKey,
   Body: fs.readFileSync(
-    "/Users/brotherzeal/Desktop/Codesmith/TimeKube/k8s-backups/cluster-state.yaml",
+    "./k8s-backups/cluster-state.yaml",
     "utf-8"
   ),
 };
@@ -66,12 +66,34 @@ export async function uploadToS3(
     console.error("Error uploading to S3:", err);
     throw err;
   }
-
 }
 
-export async function deleteFromS3(bucketName: string, s3FileName: string) {
+export function checkFileExistsInS3(s3FileKey: string) {
+  const params = {
+    Bucket: bucket,
+    Key: s3FileKey
+  };
+
+  return new Promise((resolve, reject) => {
+    s3.headObject(params, (error, data) => {
+      if (error) {
+        // If the error is NoSuchKey, the file does not exist
+        if (error.code === 'NotFound') {
+          resolve(false);
+        } else {
+          console.error("Error checking file existence:", error);
+          reject(error);
+        }
+      } else {
+        resolve(true);
+      }
+    });
+  });
+}
+
+export async function deleteFromS3(s3FileName: string) {
   const s3uploadParams : AWS.S3.Types.DeleteObjectRequest = {
-    Bucket: bucketName,
+    Bucket: bucket,
     Key: s3FileName,
   }
   try {
