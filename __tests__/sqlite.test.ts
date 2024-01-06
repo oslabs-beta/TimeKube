@@ -30,15 +30,30 @@ describe("sqlite database tests", () => {
   });
 
   it("should get a backup by id", async () => {
-    const newRow = await insertBackup("default", "https://www.get-id-test.com");
+    const newRow = await insertBackup("test", "https://www.get-id-test.com");
     insertedId = newRow.id;
     const inserted = await getBackup(insertedId);
+    if (!inserted) {
+      throw new Error("There was an unknown error inserting.");
+    }
     expect(inserted.url).toBe("https://www.get-id-test.com");
   });
 
   it("should insert a url", async () => {
-    const insertedRow = await insertBackup("default", "https://www.insert-test.com");
+    const testUrl = "https://www.insert-test.com";
+    const insertedRow = await insertBackup("test", testUrl);
     insertedId = insertedRow.id;
+    expect(insertedRow.url).toBe(testUrl);
+  });
+
+  it("should delete a row by id", async () => {
+    const testUrl = "https://delete-test.com";
+    const insertedRow = await insertBackup("test", testUrl);
+    const deleteResult = deleteBackupById(insertedRow.id);
+
+    // Check if that item still exists
+    const rowShouldBeDeleted = await getBackup(insertedRow.id);
+    expect(rowShouldBeDeleted).toBeUndefined();
   });
 
   afterEach(async () => {

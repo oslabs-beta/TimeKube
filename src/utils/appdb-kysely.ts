@@ -12,6 +12,9 @@ export const db = new Kysely<DB>({
 });
 
 export async function insertBackup(clusterId: string, url: string) {
+  if (!clusterId) {
+    clusterId = "default";
+  }
   const insertedRow = await db
     .insertInto("backups")
     .values({ clusterId, url })
@@ -28,7 +31,7 @@ export async function getBackup(id: number | null) {
     .selectFrom("backups")
     .selectAll()
     .where("id", "=", id)
-    .executeTakeFirstOrThrow();
+    .executeTakeFirst();
   console.log(res);
   return res;
 }
@@ -39,7 +42,7 @@ export async function getAllBackups() {
 
 export async function deleteBackupById(id: number | null) {
   if (!id) return;
-  return await db.deleteFrom("backups").where("id", "=", id).execute();
+  return await db.deleteFrom("backups").where("id", "=", id).executeTakeFirst();
 }
 
 export { initDB };
