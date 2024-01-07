@@ -1,4 +1,5 @@
 import { checkFileExistsInS3, deleteFromS3, uploadToS3 } from "@/services/aws-s3-service";
+import { backupFile } from "@/app/backup/backup.action";
 
 describe("s3 upload database tests", () => {
   let fileCleanup: string | null;
@@ -36,6 +37,11 @@ describe("s3 upload database tests", () => {
     const fileExists = await checkFileExistsInS3(fileToDelete);
     expect(fileExists).toBe(false);
   });
+
+  it("should add an entry to the database for an uploaded file", async () => {
+    const dbrow = await backupFile('./__tests__/s3uploadtest.txt', 'test');
+    expect(dbrow).toBeDefined();
+  })
 
   afterEach(async () => {
     if (fileCleanup) {

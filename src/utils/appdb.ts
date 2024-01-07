@@ -2,7 +2,7 @@ const db = require("better-sqlite3")('appdata/snapshots.db'); // Replace with yo
 
 export function initDB() {
   db.exec(
-    "CREATE TABLE IF NOT EXISTS backups (id INTEGER PRIMARY KEY AUTOINCREMENT, clusterId TEXT, creationDate DATETIME DEFAULT CURRENT_TIMESTAMP, url TEXT)"
+    "CREATE TABLE IF NOT EXISTS backups (id INTEGER PRIMARY KEY AUTOINCREMENT, clusterId TEXT, creationDate DATETIME DEFAULT CURRENT_TIMESTAMP, url TEXT, storageKey TEXT)"
   );
 }
 
