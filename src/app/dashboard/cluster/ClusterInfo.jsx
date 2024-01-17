@@ -1,3 +1,5 @@
+import { dump } from 'js-yaml';
+
 const k8s = require('@kubernetes/client-node');
 
 const kc = new k8s.KubeConfig();
@@ -27,16 +29,12 @@ export default async function ClusterInfo() {
     console.log(dataAPI.items)
     // console.log(dataAPI);
     // const clusterName = dataAPI.items[]
-    return (
-      <div>
-        <pre>
-            {`\nCluster Name: ${clusterName}
-              \nNumber of Pods: ${podCount}
-              \nDate Created: ${dateCreated}
-            `}
-            
-        {/* {JSON.stringify(dataAPI.items, null, 2)} */}
-        </pre>
-      </div>
-    );
+    const clusterInfoObject = {
+      clusterName,
+      podCount,
+      dateCreated,
+    };
+    const clusterInfoYAML = dump(clusterInfoObject);
+  
+    return clusterInfoYAML;
   };

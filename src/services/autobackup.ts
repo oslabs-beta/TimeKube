@@ -8,113 +8,124 @@ import { DB } from 'kysely-codegen';
 import { db } from '@/utils/kysely';
 import { bucketUpload, uploadParams } from './aws-s3-service';
 import ClusterInfo from '@/app/dashboard/cluster/ClusterInfo';
+import { saveClusterToSingleYaml, saveClusterToYaml } from '@/utils/backup';
 import {  S3 } from 'aws-sdk';
 import { AWSError } from 'aws-sdk';
 
+//set an interval parameter
+//define a TimeIntervalsObject that serves as arguments for the cron jobs functiion
+
+let setInterval;
+const TimeIntervalsObject = {
+  twoMins: "twoMins",
+  daily: "daily",
+  weekly: "weekly",
+  monthly: "monthly",
+  annually: "annually"
+};
 
 
-const startChronJobs = () => {
+//Cronjobsfunction that will conduct time backup events for exporting YAMLS
+//Will only work when server is running. 
+const startChronJobs = async (timeInt: any) => {
 let interval;
-const timeIdentifer = ['daily_snapshots', 'weekly_snapshots', 'monthly_snapshots','annual_snapshots'];
-
-const ClusterInformtion = ClusterInfo();
+//will need to grab specific information for the particular Kubernetes Clusters chosen, currently only implemented for minikube. 
+const ClusterInformtion = saveClusterToSingleYaml();
 console.log('Automatic Backup Processes are Running!');
 let currentshot; 
-
-
-//test of scheduled backups in 2 min backup icrement. 
-cron.schedule('*/1 * * * *', async () => {
-      console.log('testRun-------->', ClusterInformtion);
-
-
-      try {
-      //When app runs, cluster should already be backed up 
+//caseTwoMinuteInterval
+switch (timeInt) {
+  case TimeIntervalsObject.twoMins:
+    console.log('Backing up two mins snapshot......', ClusterInformtion);
+    try {
       let uploadResult: S3.ManagedUpload.SendData;
-    // Grab the backup and wrap the s3.upload in a Promise, upload the cluster state to a YAML file storage.
-        uploadResult = await new Promise<S3.ManagedUpload.SendData>((resolve, reject) => {
-          bucketUpload(uploadParams, (err: any, data: any) => {
-            if (err) {
-               reject(err);
-            } else {
-          resolve(data);
-           }
-          });
-       });
-       // After the file has been uploaded to the bucket, log the message and location
-       console.log('Backup Achieved!', uploadResult.Location);
-       } catch (error) {
-       console.error('Error during backup:', error);
-        }
-    });
-
-//daily backup
-cron.schedule('0 7 * * *', async () => {
-  let interval: String = timeIdentifer[0];
-  try {
-    let uploadResult: S3.ManagedUpload.SendData;
-    //Grab backup then wraps the s3.upload in a Promise, upload cluster state to a YAML file storage. 
-    uploadResult = await new Promise<S3.ManagedUpload.SendData>((resolve, reject) => {
-      bucketUpload(uploadParams, (err: any, data: any) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(data);
-        }
+  // Grab the backup and wrap the s3.upload in a Promise, upload the cluster state to a YAML file storage.
+      uploadResult = await new Promise<S3.ManagedUpload.SendData>((resolve, reject) => {
+        bucketUpload(uploadParams, (err: any, data: any) => {
+          if (err) {
+             reject(err);
+          } else {
+        resolve(data);
+         }
+        });
       });
-    });
-    //After file has been uploaded to the bucket, console logged the message and location
-    console.log('Daily Backup Achieved!', uploadResult.Location);
-  } catch (error) {
-    console.error('Error during backup: ', error);
-  }
-});
+     // After the file has been uploaded to the bucket, log the message and location
+     console.log('Backup Achieved!', uploadResult.Location);
+     } catch (error) {
+     console.error('Error during backup:', error);
+      }
+  break;
+
+//caseDailyInterval
+  case TimeIntervalsObject.daily:
+    console.log('Backing up Daily Snapshot...',ClusterInformtion )
+    try {
+      let uploadResult: S3.ManagedUpload.SendData;
+      //Grab backup then wraps the s3.upload in a Promise, upload cluster state to a YAML file storage. 
+      uploadResult = await new Promise<S3.ManagedUpload.SendData>((resolve, reject) => {
+        bucketUpload(uploadParams, (err: any, data: any) => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(data);
+          }
+        });
+      });
+      //After file has been uploaded to the bucket, console logged the message and location
+      console.log('Daily Backup Achieved!', uploadResult.Location);
+    } catch (error) {
+      console.error('Error during backup: ', error);
+    }
+  break;
+  
+  case TimeIntervalsObject.weekly:
+    console.log('Backing up weekly snapshot...',ClusterInformtion )
+    try {
+      let uploadResult: S3.ManagedUpload.SendData;
+      //Grab backup then wraps the s3.upload in a Promise, upload cluster state to a YAML file storage. 
+      uploadResult = await new Promise<S3.ManagedUpload.SendData>((resolve, reject) => {
+        bucketUpload(uploadParams, (err: any, data: any) => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(data);
+          }
+        });
+      });
+      //After file has been uploaded to the bucket, console logged the message and location
+      console.log('Weekly Backup Achieved!', uploadResult.Location);
+    } catch (error) {
+      console.error('Error during backup: ', error);
+    }
+  break
+
+  case TimeIntervalsObject.monthly:
+    console.log('Backing up monthly snapshot...',ClusterInformtion )
+    try {
+      let uploadResult: S3.ManagedUpload.SendData;
+      //Grab backup then wraps the s3.upload in a Promise, upload cluster state to a YAML file storage. 
+      uploadResult = await new Promise<S3.ManagedUpload.SendData>((resolve, reject) => {
+        bucketUpload(uploadParams, (err: any, data: any) => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(data);
+          }
+        });
+      });
+      //After file has been uploaded to the bucket, console logged the message and location
+      console.log('Weekly Backup Achieved!', uploadResult.Location);
+    } catch (error) {
+      console.error('Error during backup: ', error);
+
+
 
 
 
 //weekly backup
-cron.schedule('0 0 * * 0', async () => {
-  let interval: String = timeIdentifer[1];
-  try {
-    let uploadResult: S3.ManagedUpload.SendData;
-    uploadResult = await new Promise<S3.ManagedUpload.SendData>((resolve, reject) => {
-      bucketUpload(uploadParams, (err: any, data: any)=> {
-        if(err){
-          reject(err)
-        } else {
-          resolve(data);
-        }
-      });
-    });
-    console.log('Error during weekly backup: ', uploadResult.Location)
-  } catch (error) {
-    console.error('Error during backup: ', error)
+ 
   }
-  //export the backup 
-  currentshot = timeIdentifer[1];
-  console.log('Weekly Backup Achieved!');
-})
-
-
-
-
-//monthly backup
-cron.schedule('0 0 28 * *', () => {
-  let interval: String = timeIdentifer[2];
-  //export the backup 
-  currentshot = timeIdentifer[2];
-  console.log('Monthly Backup Achieved!');
-});
-
-
-
-//annual backup for january first 
-cron.schedule('0 0 1 1 *', () => {
-  //export the backup 
-  currentshot = timeIdentifer[3];
-  console.log('Annual Backup Achieved on January 1st! of the new year');
-});
-
 
 }
-
-export { startChronJobs }
+}
+export { startChronJobs, TimeIntervalsObject };

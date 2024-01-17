@@ -4,7 +4,7 @@
   <img width="250" src="assets/logo.png" alt="TK Logo">
 </p>
 
-TimeKube is a K8s cluster "Time Machine" graphical user interface that is able to take snapshots of a cluster’s state. 
+TimeKube: A K8s cluster 'Time Machine' UI for seamless backup and snapshot management of Kubernetes states.
 
 ## Table of Contents
 
@@ -17,15 +17,26 @@ TimeKube is a K8s cluster "Time Machine" graphical user interface that is able t
 
 ## Introduction
 
-Explain what your project does, why it exists, and its main goals. Provide a brief overview of the key features.
 
+"TimeKube simplifies Kubernetes (K8s) cluster management through its user-friendly graphical interface. As a 'Time Machine' for K8s, the project exists to streamline backup processes and enable effortless snapshots of cluster states. Its main goals include enhancing user convenience and control in K8s operations.
+
+Key Features:
+
+- User-friendly graphical interface
+- Seamless backup and snapshot management for K8s clusters
+- Streamlined Kubernetes operations for enhanced user control"
+- Visualization of kubernetes nodes, pods, volumes, metrics etc.
 ## Features
 
-List the main features of your project. You can include a bullet-point list or a table.
+1. User-Friendly Graphical Interface:
 
-- Feature 1
-- Feature 2
-- Feature 3
+  - TK offers an intuitive and easy graphical user interface designed for a positive user experience.
+2. Backup Operations:
+
+  - TimeKube facilitates seamless backup operations for Kubernetes (K8s) clusters in different time intervals - Daily, Weekly, Monthly, Annual.
+3. Snapshot Management:
+
+  - The tool enables the effortless capture of snapshots (visualization) of K8s cluster states.
 
 ## Installation
 
