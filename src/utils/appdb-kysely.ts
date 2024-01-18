@@ -2,6 +2,7 @@ import { DB } from "kysely-codegen"; // this is the Database interface we define
 import SQLite from "better-sqlite3";
 import { Kysely, SqliteDialect } from "kysely";
 import { initDB } from "./appdb";
+import cluster from "cluster";
 
 const dialect = new SqliteDialect({
   database: new SQLite("appdata/snapshots.db"),
@@ -18,9 +19,10 @@ export async function insertBackup(url: string, storageKey: string, clusterId: s
   if (!storageKey) {
     throw new Error("NoCloudStorageFileKeyError")
   }
+  console.log(clusterId, url)
   const insertedRow = await db
     .insertInto("backups")
-    .values({ clusterId, url })
+    .values({ clusterId, url, storageKey })
     .returningAll()
     .executeTakeFirstOrThrow();
   return insertedRow;
