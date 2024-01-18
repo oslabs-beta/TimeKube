@@ -5,7 +5,7 @@ import { initDB } from "./appdb";
 import cluster from "cluster";
 
 const dialect = new SqliteDialect({
-  database: new SQLite("appdata/snapshots.db"),
+  database: new SQLite(process.env.DATABASE_URL || './appdata/snapshots.db'),
 });
 
 export const db = new Kysely<DB>({
