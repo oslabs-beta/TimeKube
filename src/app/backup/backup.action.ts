@@ -11,7 +11,6 @@ export async function backupHandler(formData: FormData) {
   // saveClusterToYaml();
   // save cluster state to a single yaml file
   const clusterId = formData.get("clusterId") as string;
-  console.log("ClusterId from backupHandler: ", clusterId);
   const localSavedFilePath = await saveClusterToSingleYaml();
   if (typeof localSavedFilePath !== "string") {
     throw new Error("YamlSaveError");
