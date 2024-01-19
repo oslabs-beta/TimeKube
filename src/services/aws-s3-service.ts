@@ -19,7 +19,8 @@ const s3 = new AWS.S3();
 
 //Backup functionality
 
-const currentDate = moment().format("YYYY-MM-DD HH:mm:ss");
+// const currentDate = moment().format('YYYY-MM-DD HH:mm:ss');
+
 
 //fetching the information (We can adjust this based on our logic)
 // const snapshotType: string = timeIdentifer[0]; // We can change this to 'Daily', 'Weekly', 'Monthly', or 'Annual' - Will need to be sent in by the front end.
