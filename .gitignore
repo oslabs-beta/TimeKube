@@ -45,3 +45,5 @@ next-env.d.ts
 
 # App Data
 appdata/
+# JetBrains IDE
+.idea
