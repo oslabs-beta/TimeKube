@@ -28,9 +28,10 @@ export default async function CurrentState() {
   console.log(dataAPI);
 
   return (
-    <div>
-      <pre>
+    <div className={"mockup-code"}>
+      <pre><code>
       {JSON.stringify(dataAPI, null, 2)}
+      </code>
       </pre>
     </div>
   );
