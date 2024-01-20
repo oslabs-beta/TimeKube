@@ -2,7 +2,7 @@ import * as AWS from "aws-sdk";
 import * as fs from "fs";
 import dotenv from "dotenv";
 import moment from "moment";
-import { backupHandler } from "@/app/backup/backup.action";
+import { backupHandler } from "@/app/dashboard/cluster/[clusterId]/backup/backup.action";
 // import moment from 'moment';
 import { DB } from "kysely-codegen";
 import { db } from "@/utils/kysely";
