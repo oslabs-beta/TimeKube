@@ -8,7 +8,7 @@ const ClusterPage = ({params}: {params: ClusterPageParams}) => {
         <h1>Dashboard</h1>
         <p>Welcome to the dashboard page!</p>
         <ClusterInfo />
-        <BackupButton text={params.clusterId} />
+        <BackupButton text={`Manually back up Cluster ${params.clusterId}`} />
       </div>
     );
   };
