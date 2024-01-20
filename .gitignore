@@ -41,5 +41,9 @@ next-env.d.ts
 # k8s backup files
 /k8s-backups
 
+# Secrets
+
+# App Data
+appdata/
 # JetBrains IDE
 .idea
