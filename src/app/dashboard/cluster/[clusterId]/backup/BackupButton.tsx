@@ -1,10 +1,11 @@
 'use client'
-import { useSearchParams } from 'next/navigation'
+import { useSearchParams, useParams } from 'next/navigation'
 import { backupHandler } from "./backup.action";
 
 export default async function BackupButton({text}: {text: string}) {
-  const searchParams = useSearchParams()
-  const clusterId = searchParams.get('clusterId')
+  // const searchParams = useSearchParams()
+  const params = useParams();
+  const clusterId = params.clusterId ?? "default"
   console.log('clusterId in BackupButton', clusterId)
   return (
     <form action={backupHandler}>

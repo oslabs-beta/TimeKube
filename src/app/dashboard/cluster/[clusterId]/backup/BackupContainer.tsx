@@ -1,7 +1,7 @@
 import { ls } from "@/utils/backup";
 import BackupButton from "./BackupButton";
 
-export default async function Backup({clusterId}) {
+export default async function Backup() {
   const lsResult = ls();
   return (
     <div className="max-w-3xl rounded overflow-hidden shadow-lg text-3xl bg-gray-600">
