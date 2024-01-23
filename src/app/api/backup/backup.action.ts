@@ -1,7 +1,7 @@
 "use server";
-import { uploadToS3 } from "@/services/aws-s3-service";
-import { insertBackup } from "@/utils/appdb-kysely";
-import { saveClusterToSingleYaml, saveClusterToYaml } from "@/utils/backup";
+import { uploadToS3 } from "@/services/aws-s3-service.ts";
+import { insertBackup } from "@/utils/appdb-kysely.ts";
+import { saveClusterToSingleYaml, saveClusterToYaml } from "@/utils/backup.ts";
 
 /**
  * Event handler to back up cluster to yaml and upload to s3, recording s3 URL in database
