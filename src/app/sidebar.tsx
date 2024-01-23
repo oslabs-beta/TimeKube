@@ -20,7 +20,7 @@ export default function Sidebar({ content }: { content: React.ReactNode }) {
         <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content space-y-6 text-xl font-bold">
           {/* Sidebar content here */}
           <li><a onClick={() => handleRedirect('/dashboard/cluster')}>View Clusters</a></li>
-          <li><a onClick={() => handleRedirect('/')}>View Snapshots</a></li>
+          <li><a onClick={() => handleRedirect('/dashboard/snapshots')}>View Snapshots</a></li>
           <li><a onClick={() => handleRedirect('/dashboard/backup')}>Manual Data Backup</a></li>
           <li><a onClick={() => handleRedirect('/schedule_options')}>Automatic Data Backup</a></li>
 
