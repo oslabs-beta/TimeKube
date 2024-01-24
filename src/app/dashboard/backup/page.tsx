@@ -6,8 +6,8 @@ import Cluster from "../cluster/cluster";
 const Page: NextPage = () => {
   const clusterIds = ["1", "2", "3", "4", "5", "6"];
   return (
-    <div>
-      <div className="drawer-content flex flex-col items-center justify-top text-8xl -mt-36 text-white font-extrabold">
+    <div className="flex flex-col items-center justify-center">
+      <div className=" text-6xl text-white font-extrabold">
         Choose a cluster to backup
       </div>
       <div className="grid grid-cols-3 gap-48 mt-36">
