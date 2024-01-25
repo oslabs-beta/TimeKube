@@ -1,8 +1,9 @@
-import { db } from "@/utils/appdb-kysely";
+import {db} from "@/utils/appdb-kysely";
 import TimelineBeginning from "./TimelineBeginning";
 import TimelineEnd from "./TimelineEnd";
+import Link from "next/link";
 
-export default async function ClusterSnapshotsPage({ params }) {
+export default async function ClusterSnapshotsPage({params}) {
   const currentClusterId = params.clusterId;
   const snapshots = await db
     .selectFrom("backups")
@@ -20,11 +21,11 @@ export default async function ClusterSnapshotsPage({ params }) {
       </div>
       <div className="flex flex-wrap justify-around content-evenly">
         <ul className="timeline timeline-vertical">
-          <TimelineBeginning />
+          <TimelineBeginning/>
           {snapshots.map((s) => {
             return (
-              <li>
-              <hr className="" />
+              <li key={s.id}>
+                <hr className=""/>
                 <div className="timeline-start">{s.creationDate}</div>
                 <div className="timeline-middle">
                   <svg
@@ -40,12 +41,17 @@ export default async function ClusterSnapshotsPage({ params }) {
                     />
                   </svg>
                 </div>
-                <div className="timeline-end timeline-box bg-primary">{s.clusterId}</div>
+                <div className="timeline-end timeline-box bg-primary">
+                  <Link href={`snapshots/${s.url.split('/').pop()}`}>
+                    {s.clusterId}
+                    {}
+                  </Link>
+                </div>
                 <hr className=""/>
               </li>
             );
           })}
-          <TimelineEnd />
+          <TimelineEnd/>
         </ul>
       </div>
     </div>
