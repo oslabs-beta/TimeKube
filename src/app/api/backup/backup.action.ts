@@ -1,7 +1,7 @@
 "use server";
-import { uploadToS3 } from "@/services/aws-s3-service";
-import { insertBackup } from "@/utils/appdb-kysely";
-import { saveClusterToSingleYaml, saveClusterToYaml } from "@/utils/backup";
+import { uploadToS3 } from "@/services/aws-s3-service.ts";
+import { db, insertBackup } from "@/utils/appdb-kysely.ts";
+import { saveClusterToSingleYaml, saveClusterToYaml } from "@/utils/backup.ts";
 
 /**
  * Event handler to back up cluster to yaml and upload to s3, recording s3 URL in database
@@ -42,4 +42,18 @@ export async function backupFile(filePath: string, clusterId = "default") {
   } catch (e) {
     console.log("Error in backupFile: ", e);
   }
+}
+
+type GetBackupsParams = {
+  clusterId?: string;
+}
+export async function getBackups(params?: GetBackupsParams) {
+  if (!params) {
+    return await db.selectFrom("backups").selectAll().execute();
+  }
+  if (params.clusterId !== undefined) {
+    const res = await db.selectFrom("backups").selectAll().where("clusterId", "=", params.clusterId).execute();
+    return res;
+  }
+  return await db.selectFrom("backups").selectAll().execute();
 }

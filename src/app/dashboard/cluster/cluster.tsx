@@ -15,6 +15,8 @@ export default function Cluster(props: ClusterProp) {
   }
   const url = `../dashboard/cluster/${props.id}/${props.suffix ?? ''}`
   return (
+    <div className="flex">
+
     <div className="activeCluster mockup-code">
       <div className={"flex justify-center"}>
         <Link href={url}>
@@ -24,6 +26,7 @@ export default function Cluster(props: ClusterProp) {
           </button>
         </Link>
       </div>
+    </div>
     </div>
   )
 }

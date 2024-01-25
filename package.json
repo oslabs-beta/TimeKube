@@ -19,6 +19,8 @@
     "better-sqlite3": "^9.2.2",
     "dotenv": "^16.3.1",
     "drizzle-orm": "^0.29.1",
+    "highlight.js": "^11.9.0",
+    "highlightjs-copy": "^1.0.5",
     "kysely": "^0.26.3",
     "kysely-planetscale": "^1.4.0",
     "moment": "^2.29.4",
@@ -31,13 +33,13 @@
     "react-syntax-highlighter": "^15.5.0"
   },
   "devDependencies": {
+    "@heroicons/react": "^2.0.18",
     "@testing-library/jest-dom": "^6.2.0",
     "@testing-library/react": "^14.1.2",
     "@types/aws-sdk": "^2.7.0",
     "@types/better-sqlite3": "^7.6.8",
     "@types/jest": "^29.5.10",
     "@types/node": "^20.10.1",
-    "@heroicons/react": "^2.0.18",
     "@types/react": "^18",
     "@types/react-copy-to-clipboard": "^5.0.7",
     "@types/react-dom": "^18",

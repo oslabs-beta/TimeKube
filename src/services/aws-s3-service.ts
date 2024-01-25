@@ -2,7 +2,7 @@ import * as AWS from "aws-sdk";
 import * as fs from "fs";
 import dotenv from "dotenv";
 import moment from "moment";
-import { backupHandler } from "@/app/dashboard/cluster/[clusterId]/backup/backup.action";
+import { backupHandler } from "@/app/api/backup/backup.action.ts";
 // import moment from 'moment';
 import { DB } from "kysely-codegen";
 import { db } from "@/utils/kysely";
@@ -103,6 +103,24 @@ export async function deleteFromS3(s3FileName: string) {
   catch (err) {
     console.error("Error deleting from S3:", err);
     throw err;
+  }
+}
+
+export async function downloadFromS3(s3FileKey: string) {
+  const s3DownloadParams : AWS.S3.Types.GetObjectRequest = {
+    Bucket: bucket,
+    Key: s3FileKey,
+  }
+  try {
+    const data = await s3.getObject(s3DownloadParams).promise();
+    if (data.Body) {
+      return data.Body.toString();
+    } else {
+      throw new Error('An error occurred retrieving file from s3');
+    }
+  } catch (err) {
+    console.error(err);
+    return 'An error occurred retrieving file from s3';
   }
 }
 

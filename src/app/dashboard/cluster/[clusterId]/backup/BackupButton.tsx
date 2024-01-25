@@ -1,6 +1,6 @@
 'use client'
 import { useSearchParams, useParams } from 'next/navigation'
-import { backupHandler } from "./backup.action";
+import { backupHandler } from "../../../../api/backup/backup.action.ts";
 
 export default async function BackupButton({text}: {text: string}) {
   // const searchParams = useSearchParams()
