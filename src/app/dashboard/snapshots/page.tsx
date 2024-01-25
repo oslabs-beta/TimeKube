@@ -19,12 +19,12 @@ export default async function ClusterSnapshotsPage({ params }) {
   const clusterIds = Array.from(new Set(snapshots.map((b) => b.clusterId)));
 
   return (
-    <div className="grid grid-rows-12 grid-flow-row gap-10">
+    <div className="mx-auto mt-10 grid grid-rows-12 grid-flow-row gap-10">
       <div className="text-4xl  text-white font-extrabold row-span-1 justify-self-center">
         Select a cluster to view snapshots
       </div>
       {/* <div className="flex flex-wrap justify-start content-evenly row-span-5 row-start-2"> */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6 justify-center align-middle">
+      <div className="mx-auto mt-10 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6 justify-center align-middle">
         {clusterIds
           ? clusterIds.map((b) => (
               <Cluster
