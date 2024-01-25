@@ -1,1 +1,3 @@
-sqlite.test.ts
+This file is s3uploadtest.txt.
+Line 2: sqlite.test.ts
+Line 3: s3download.test.ts

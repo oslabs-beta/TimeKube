@@ -106,6 +106,24 @@ export async function deleteFromS3(s3FileName: string) {
   }
 }
 
+export async function downloadFromS3(s3FileKey: string) {
+  const s3DownloadParams : AWS.S3.Types.GetObjectRequest = {
+    Bucket: bucket,
+    Key: s3FileKey,
+  }
+  try {
+    const data = await s3.getObject(s3DownloadParams).promise();
+    if (data.Body) {
+      return data.Body.toString();
+    } else {
+      throw new Error('An error occurred retrieving file from s3');
+    }
+  } catch (err) {
+    console.error(err);
+    return 'An error occurred retrieving file from s3';
+  }
+}
+
 //S3 upload functionality
 // const bucketUpload = s3.upload(uploadParams, (err, data) => {
 //   if (err) {
