@@ -7,7 +7,7 @@ const k8sApi = kc.makeApiClient(k8s.CoreV1Api);
 
 async function getData() {
     try {
-        const podsRes = await k8sApi.listNamespacedPod('default');
+        const podsRes = await k8sApi.listPodForAllNamespaces();
         console.log(podsRes.body);
         return podsRes.body;
     } catch (err) {
