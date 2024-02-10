@@ -1,23 +1,43 @@
+import Image from "next/image"
 export default function Navbar() {
-    return (
-    <div className="navbar bg-base-100">
-      <div className="flex-1">
-        <a className="btn btn-ghost text-xl">TimeKube</a>
-      </div>
-      <div className="flex-none">
-        <div className="dropdown dropdown-end">
-          <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-            <div className="w-10 rounded-full">
-              <img alt="Tailwind CSS Navbar component" src="https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg" />
+  return (
+    <nav className="bg-white border-b-2 border-gray-100">
+      <div className="mx-16 px-2 sm:px-6 lg:px-8">
+        <div className="relative flex h-28 items-center justify-between">
+          <div className="flex flex-1 items-center justify-center lg:items-stretch lg:justify-start">
+            <a href="/" className="flex flex-shrink-0 items-center">
+              <Image className="h-12 w-auto rounded-full" src="/TimeKubeLogo.png" alt="TimeKube Logo" width={64} height={64}/>
+            </a>
+            <div className="ml-6">
+              <div className="flex space-x-10">
+                <a href="/" className="bg-gray-900 text-white rounded-md px-3 py-2 text-2xl font-medium" aria-current="page">TimeKube</a>
+              </div>
+            </div>
+            <div className="ml-6">
+              <div className="bg-purple-200 h-8 mt-2 text-white rounded-3xl px-6 py-1 text-md font-bold" aria-current="page">v1.0.0</div>
             </div>
           </div>
-          <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-            <li><a>Profile</a></li>
-            <li><a>Settings</a></li>
-            <li><a>Logout</a></li>
-          </ul>
+            <div className="hidden lg:ml-6 lg:block">
+              <div className="flex space-x-10">
+                <a href="/" className="text-gray-500 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-xl font-medium">Home</a>
+                <a href="/dashboard/cluster" className="text-gray-500 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-xl font-medium">Clusters</a>
+                <a href="/dashboard/snapshots" className="text-gray-500 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-xl font-medium">Snapshots</a>
+                <a href="/dashboard/backup" className="text-gray-500 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-xl font-medium">Backup</a>
+                <a href="https://github.com/oslabs-beta/TimeKube/" className="text-gray-500 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-xl font-medium">GitHub</a>
+              </div>
+            </div>
         </div>
       </div>
-    </div>
-    )
+
+      <div className="lg:hidden" id="mobile-menu">
+        <div className="space-y-1 px-2 pb-3 pt-2">
+          <a href="/" className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Home</a>
+          <a href="/dashboard/cluster" className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Clusters</a>
+          <a href="/dashboard/snapshots" className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Snapshots</a>
+          <a href="/dashboard/backup" className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Backup</a>
+          <a href="https://github.com/oslabs-beta/TimeKube/" className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">GitHub</a>
+        </div>
+      </div>
+    </nav>
+  )
 }
