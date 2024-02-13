@@ -1,7 +1,7 @@
 # TimeKube 
 
 <p>
-  <img width="250" src="assets/logo.png" alt="TK Logo">
+  <img width="250" src="assets/RepoLogo.png" alt="TK Logo">
 </p>
 
 TimeKube: A K8s cluster 'Time Machine' UI for seamless backup and snapshot management of Kubernetes states.
