@@ -33,11 +33,9 @@ Most free and open-source Kubernetes backup and restore tools focus on command-l
 TimeKube focuses on the workflow of creating and organizing backups so that the data for your cluster is never lost and can be found and restored by any developer in your team.
 
 ## Features
-List the main features of your project. You can include a bullet-point list or a table.
-
-- Back up 
-- Feature 2
-- Feature 3
+- Back up the state of your Kubernetes clusters securely to a file or on the cloud (AWS S3)
+- Organize and view previously saved backups
+- Retrieve backup files for restoring your Kubernetes clusters
 
 ## Installation
 Provide step-by-step instructions on how to install your project. Include any dependencies that need to be installed and any configuration that needs to be done.
@@ -49,6 +47,8 @@ cd yourproject
 npm install
 ```
 
+## Getting Started
+
 ## The TimeKube Team
 |  Developed By         | GitHub                                                                                                                                                  |  LinkedIn                                                                                                                                         |
 | :-------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------: |
@@ -57,3 +57,16 @@ npm install
 | Lucas Ho              | [![Github](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/luchd)                | [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/luchd/)              |
 | Nassim Chibane        | [![Github](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/nchib)                | [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/nassimchibane/)      |
 | Ryan Sawadichai       | [![Github](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/rswdch)               | [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ryan-sawadichai/)    |
+
+## Contributing
+Contributions are the foundation of the open-source community. Your contributions help improve our application for developers around the world and are greatly appreciated.
+
+Feel free to fork the project, implement changes, and submit pull requests to help perfect this product and solve problems others might be facing.
+
+If you like what TimeKube is doing, consider starring our project on GitHub. Stars will help boost TimeKube's visibility to developers who may find our product useful or be interested in contributing.
+
+If you notice any bugs or would like to request features, please browse our [Issues page.](https://github.com/oslabs-beta/TimeKube/issues)
+
+
+## License
+TimeKube is developed under the [MIT license](https://en.wikipedia.org/wiki/MIT_License)
