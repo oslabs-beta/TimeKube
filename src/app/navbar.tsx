@@ -23,6 +23,7 @@ export default function Navbar() {
                 <a href="/dashboard/cluster" className="text-gray-500 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-xl font-medium">Clusters</a>
                 <a href="/dashboard/snapshots" className="text-gray-500 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-xl font-medium">Snapshots</a>
                 <a href="/dashboard/backup" className="text-gray-500 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-xl font-medium">Backup</a>
+                <a href="/dashboard/metrics" className="text-gray-500 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-xl font-medium">Metrics</a>
                 <a href="https://github.com/oslabs-beta/TimeKube/" className="text-gray-500 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-xl font-medium">GitHub</a>
               </div>
             </div>
@@ -35,6 +36,7 @@ export default function Navbar() {
           <a href="/dashboard/cluster" className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Clusters</a>
           <a href="/dashboard/snapshots" className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Snapshots</a>
           <a href="/dashboard/backup" className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Backup</a>
+          <a href="/dashboard/metrics" className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Clusters</a>
           <a href="https://github.com/oslabs-beta/TimeKube/" className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">GitHub</a>
         </div>
       </div>
