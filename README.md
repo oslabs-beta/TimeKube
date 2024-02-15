@@ -78,6 +78,9 @@ Backing up clusters can be handled either from "Clusters" or "Backup". Simply ch
 ### Viewing Backups
 From the navbar, select "Snapshots". All the clusters you have valid backups for will be shown. Select a cluster name and you will find your backups listed in chronological order.
 
+![image](https://github.com/oslabs-beta/TimeKube/assets/13823341/0cc2eb79-2106-4d94-9867-87ddbfa0e264)
+
+
 ## The TimeKube Team
 |  Developed By         | GitHub                                                                                                                                                  |  LinkedIn                                                                                                                                         |
 | :-------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------: |
