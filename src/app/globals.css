@@ -4,17 +4,10 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
+  --background-start-rgb: 255, 255, 255;
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 175, 175, 175;
-    --background-end-rgb: 100, 100, 100;
-  }
-}
 
 body {
   color: rgb(var(--foreground-rgb));
