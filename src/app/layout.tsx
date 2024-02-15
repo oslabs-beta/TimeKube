@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { useEffect } from "react";
 import "./globals.css";
-import Sidebar from "./sidebar";
 import Navbar from "./navbar";
 import { startChronJobs } from "@/services/autobackup";
 
@@ -24,10 +23,10 @@ export default function RootLayout({
     // startChronJobs();
 
   return (
-    <html lang="en">
+    <html lang="en" style={{height: "100vh", width: "100vw", background:"white"}}>
       <body className={inter.className}>
-        <Navbar/>
-        <Sidebar content={children}/>
+        <Navbar />
+        {children}
       </body>
     </html>
   );
