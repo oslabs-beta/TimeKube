@@ -49,8 +49,34 @@ npm run dev
 Next, open up a browser window and navigate to http://localhost:3000/
 
 ## Getting Started
-### AWS Configuration
+Initial configuration of the app requires creating a `.env` file and adding specific key-value pairs. An example file with relevant keys is included in `.env.example`. See each of the following sections on how to configure features.
 
+## Database Configuration
+By default, application data is stored locally in `./appdata/snapshots.db`. However, if you would prefer to host application data on your own database, chase the `DATABASE_URL` key.
+
+### AWS Configuration
+AWS S3 backup functionality for files requires entering your `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and `AWS_REGION`. Refer to [AWS Documentation](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) on how to set up access to your S3 file storage bucket.
+
+```
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+AWS_REGION=
+```
+
+### Cluster Metrics Visualization
+Cluster visualiztion leverages the OpenTelemetry observability framework through Grafana and Prometheus, both of which are required to be deployed in your clusters. Once the pre-requisites are deployed, edit the `GRAFANA_URL` key in the `.env`.
+
+## Basic Usage
+Once the database and storage are configured, you can begin using the app to back up your cluster!
+
+### Viewing Clusters
+From the navbar, click on "Clusters" to view the list of your clusters, which is inferred from your [kubeconfig](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/). 
+
+### Backing Up Clusters
+Backing up clusters can be handled either from "Clusters" or "Backup". Simply choose a cluster and click the button to back up!
+
+### Viewing Backups
+From the navbar, select "Snapshots". All the clusters you have valid backups for will be shown. Select a cluster name and you will find your backups listed in chronological order.
 
 ## The TimeKube Team
 |  Developed By         | GitHub                                                                                                                                                  |  LinkedIn                                                                                                                                         |
