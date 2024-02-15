@@ -7,7 +7,7 @@ const DashboardPage: NextPage = () => {
     <div>
       <h1 className={"text-5xl font-bold"}>Dashboard</h1>
       <p>Welcome to the dashboard page! Here are your cluster details:</p>
-      <CurrentState />
+      <div className='w-1/2 float-right'><CurrentState /></div>
     </div>
   );
 };
