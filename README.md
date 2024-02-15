@@ -66,6 +66,20 @@ AWS_REGION=
 ### Cluster Metrics Visualization
 Cluster visualiztion leverages the OpenTelemetry observability framework through Grafana and Prometheus, both of which are required to be deployed in your clusters. Once the pre-requisites are deployed, edit the `GRAFANA_URL` key in the `.env`.
 
+If you are deploying Grafana from a local machine, make sure to change the "allow_embedding" and "auth.anonymous" properties within your grafana.ini file to "true." Note that your config may be called "defaults.ini" as well. 
+
+If you are deploying Grafana as a service within the cluster, please do the following:
+
+1. Create a grafana.ini file on your computer with the same properties as above set to true. You can find the Grafana Configuration defaults on the[Grafana github repo.](https://github.com/grafana/grafana/blob/main/conf/defaults.ini)
+
+2. Create a config map using the following command: kubectl create configMap grafana-config --from-file=[YOUR CUSTOM GRAFANA.INI PATH HERE].
+
+3. Mount the newly created configMap to the Grafana deployment's .yaml file. You can do this by obtaining the .yaml file via the command: kubectl get deploy [NAME OF DEPLOYMENT] -o yaml > grafana-deploy.yaml. This will allow you to open the .yaml file using Vi/Vim (vi grafana-deploy.yaml). Once the .yaml file has been opened in Vi/Vim, press i to enter insert mode and find spec.template.volume. Change the name value within the configMap property here to whatever you named your configMap in step 2 - in this instance, it is grafana-config.
+
+4. Finally, reapply the edited .yaml file to the cluster using the command kubectl apply -f grafana-deploy.yaml. You may need to use kubectl apply -f grafana-deploy.yaml --force.
+
+Your Grafana dashboard will now be embedded within the web app. If those settings are not set to true, the dashboard will not appear.
+
 ## Basic Usage
 Once the database and storage are configured, you can begin using the app to back up your cluster!
 
