@@ -38,16 +38,19 @@ TimeKube focuses on the workflow of creating and organizing backups so that the 
 - Retrieve backup files for restoring your Kubernetes clusters
 
 ## Installation
-Provide step-by-step instructions on how to install your project. Include any dependencies that need to be installed and any configuration that needs to be done.
-
+Start by cloning the repo, then run the scripts to install dependencies and start the app:
 ```bash
 # Example installation steps
-git clone https://github.com/yourusername/yourproject.git
-cd yourproject
+git clone https://github.com/oslabs-beta/TimeKube.git
+cd TimeKube
 npm install
+npm run dev
 ```
+Next, open up a browser window and navigate to http://localhost:3000/
 
 ## Getting Started
+### AWS Configuration
+
 
 ## The TimeKube Team
 |  Developed By         | GitHub                                                                                                                                                  |  LinkedIn                                                                                                                                         |
