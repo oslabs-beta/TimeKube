@@ -2,7 +2,7 @@
 import { useSearchParams, useParams } from 'next/navigation'
 import { backupHandler } from "../../../../api/backup/backup.action.ts";
 
-export default async function BackupButton({text}: {text: string}) {
+export default function BackupButton({text}: {text: string}) {
   // const searchParams = useSearchParams()
   const params = useParams();
   const clusterId = params.clusterId ?? "default"
