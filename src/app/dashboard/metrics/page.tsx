@@ -10,10 +10,8 @@ const Page: NextPage = async () => {
 
 
   return (
-    <div>
-      <h1>Metrics Visualizer</h1>
-      <p>Welcome to the user page!</p>
-    <iframe src={process.env.GRAFANA_URL} width="1500" height="750" frameBorder="0"></iframe>
+    <div className='w-full'>
+        <div className='w-full flex items-center justify-center pt-16'><iframe className='' src={process.env.GRAFANA_URL} width="1500" height="750" frameBorder="0"></iframe></div>
     </div>
   );
 };

@@ -23,8 +23,8 @@ export default function RootLayout({
     // startChronJobs();
 
   return (
-    <html lang="en" style={{height: "100vh", width: "100vw", background:"white"}}>
-      <body className={inter.className}>
+    <html lang="en" >
+      <body className={inter.className} style={{height: "100vh", width: "100vw"}}>
         <Navbar />
         {children}
       </body>
