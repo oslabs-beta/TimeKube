@@ -19,12 +19,9 @@ export default function Navbar() {
           </div>
             <div className="hidden lg:ml-6 lg:block">
               <div className="flex space-x-10">
-                <a href="/" className="text-gray-500 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-xl font-medium">Home</a>
                 <a href="/dashboard/cluster" className="text-gray-500 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-xl font-medium">Clusters</a>
                 <a href="/dashboard/snapshots" className="text-gray-500 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-xl font-medium">Snapshots</a>
-                <a href="/dashboard/backup" className="text-gray-500 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-xl font-medium">Backup</a>
                 <a href="/dashboard/metrics" className="text-gray-500 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-xl font-medium">Metrics</a>
-                <a href="https://github.com/oslabs-beta/TimeKube/" className="text-gray-500 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-xl font-medium">GitHub</a>
               </div>
             </div>
         </div>
@@ -32,12 +29,9 @@ export default function Navbar() {
 
       <div className="lg:hidden" id="mobile-menu">
         <div className="space-y-1 px-2 pb-3 pt-2">
-          <a href="/" className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Home</a>
           <a href="/dashboard/cluster" className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Clusters</a>
           <a href="/dashboard/snapshots" className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Snapshots</a>
-          <a href="/dashboard/backup" className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Backup</a>
-          <a href="/dashboard/metrics" className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Clusters</a>
-          <a href="https://github.com/oslabs-beta/TimeKube/" className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">GitHub</a>
+          <a href="/dashboard/metrics" className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Metrics</a>
         </div>
       </div>
     </nav>
