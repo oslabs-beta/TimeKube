@@ -1,6 +1,6 @@
 # TimeKube 
 
-<p alight="center">
+<p align="center">
   <img src="public/TimeKubeLogo.png" alt="TK Logo">
 </p>
 
