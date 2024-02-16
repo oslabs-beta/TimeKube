@@ -44,6 +44,7 @@ next-env.d.ts
 # Secrets
 
 # App Data
-appdata/
+appdata/snapshots.db
+
 # JetBrains IDE
 .idea

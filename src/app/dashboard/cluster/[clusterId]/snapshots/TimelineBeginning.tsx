@@ -3,6 +3,7 @@ export default function TimelineBeginning() {
     <li>
       <div className="timeline-start">Today</div>
       <div className="timeline-middle">
+        {/* checkbox */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
@@ -16,7 +17,7 @@ export default function TimelineBeginning() {
           />
         </svg>
       </div>
-      <div className="timeline-end timeline-box">Backup Now</div>
+      <div className="timeline-end timeline-box text-white">Backup Now</div>
       <hr className="" />
     </li>
   );
