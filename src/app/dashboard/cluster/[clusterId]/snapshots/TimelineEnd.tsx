@@ -17,7 +17,7 @@ export default function TimelineEnd() {
           />
         </svg>
       </div>
-      <div className="timeline-end timeline-box">No More Backups</div>
+      <div className="timeline-end timeline-box text-white">No More Backups</div>
     </li>
   );
 }
