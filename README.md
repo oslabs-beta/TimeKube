@@ -1,7 +1,7 @@
 # TimeKube 
 
 <p>
-  <img width="250" src="assets/logo.png" alt="TK Logo">
+  <img width="250" src="public/TimeKubeLogo.png" alt="TK Logo">
 </p>
 
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
