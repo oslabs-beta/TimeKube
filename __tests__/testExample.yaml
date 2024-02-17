@@ -1,0 +1,23 @@
+# Comment: This is a testing yaml file
+---
+apiVersion: v1
+items:
+  - apiVersion: v1
+    kind: Pod
+    metadata:
+      creationTimestamp: "2023-11-22T01:25:17Z"
+      generateName: test
+      labels:
+        app: test
+        pod-template-hash: test
+      name: test
+      namespace: default
+      ownerReferences:
+        - apiVersion: apps/v1
+          blockOwnerDeletion: true
+          controller: true
+          kind: ReplicaSet
+          name: test
+          uid: test
+      resourceVersion: "10432"
+      uid: test
