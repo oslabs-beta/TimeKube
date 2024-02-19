@@ -2,10 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { startChronJobs } from "@/services/autobackup";
 import OurTeam from "./OurTeam";
+import { initDB } from "@/utils/appdb";
 
 export default function Home() {
   {/**/}
   // startChronJobs()
+  initDB();
   return (
     <main className="flex min-h-screen min flex-col items-center justify-between">
         <div className="w-full flex">
