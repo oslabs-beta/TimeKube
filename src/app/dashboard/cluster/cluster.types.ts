@@ -1,3 +1,0 @@
-  type ClusterPageParams = {
-    clusterId: string
-  }
